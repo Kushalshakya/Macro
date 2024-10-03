@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextEdit>
@@ -24,13 +25,15 @@ public:
     QWidget *centralwidget;
     QPushButton *tapBtn;
     QPushButton *delayBtn;
-    QTextEdit *commandInterpreter;
     QPushButton *executeBtn;
     QPushButton *loopBtn;
     QPushButton *searchBtn;
     QPushButton *typeBtn;
-    QPushButton *copyBtn;
+    QPushButton *helpBtn;
     QPushButton *destroyBtn;
+    QTextEdit *commandInterpreter;
+    QTextEdit *textEd;
+    QLabel *programFlowChart;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -50,14 +53,6 @@ public:
         delayBtn->setObjectName("delayBtn");
         delayBtn->setGeometry(QRect(30, 80, 91, 31));
         delayBtn->setFont(font);
-        commandInterpreter = new QTextEdit(centralwidget);
-        commandInterpreter->setObjectName("commandInterpreter");
-        commandInterpreter->setGeometry(QRect(140, 20, 631, 411));
-        QFont font1;
-        font1.setFamilies({QString::fromUtf8("Poppins")});
-        font1.setPointSize(18);
-        commandInterpreter->setFont(font1);
-        commandInterpreter->setStyleSheet(QString::fromUtf8("color: red;"));
         executeBtn = new QPushButton(centralwidget);
         executeBtn->setObjectName("executeBtn");
         executeBtn->setGeometry(QRect(689, 440, 81, 31));
@@ -74,14 +69,32 @@ public:
         typeBtn->setObjectName("typeBtn");
         typeBtn->setGeometry(QRect(30, 200, 91, 31));
         typeBtn->setFont(font);
-        copyBtn = new QPushButton(centralwidget);
-        copyBtn->setObjectName("copyBtn");
-        copyBtn->setGeometry(QRect(30, 240, 91, 31));
-        copyBtn->setFont(font);
+        helpBtn = new QPushButton(centralwidget);
+        helpBtn->setObjectName("helpBtn");
+        helpBtn->setGeometry(QRect(30, 240, 91, 31));
+        helpBtn->setFont(font);
         destroyBtn = new QPushButton(centralwidget);
         destroyBtn->setObjectName("destroyBtn");
         destroyBtn->setGeometry(QRect(30, 280, 91, 31));
         destroyBtn->setFont(font);
+        commandInterpreter = new QTextEdit(centralwidget);
+        commandInterpreter->setObjectName("commandInterpreter");
+        commandInterpreter->setGeometry(QRect(140, 20, 630, 410));
+        QFont font1;
+        font1.setFamilies({QString::fromUtf8("Poppins")});
+        font1.setPointSize(16);
+        commandInterpreter->setFont(font1);
+        textEd = new QTextEdit(centralwidget);
+        textEd->setObjectName("textEd");
+        textEd->setGeometry(QRect(30, 330, 100, 100));
+        programFlowChart = new QLabel(centralwidget);
+        programFlowChart->setObjectName("programFlowChart");
+        programFlowChart->setGeometry(QRect(18, 430, 126, 30));
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Poppins")});
+        font2.setPointSize(10);
+        programFlowChart->setFont(font2);
+        programFlowChart->setAlignment(Qt::AlignmentFlag::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -94,20 +107,13 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         tapBtn->setText(QCoreApplication::translate("MainWindow", "TAP", nullptr));
         delayBtn->setText(QCoreApplication::translate("MainWindow", "DELAY", nullptr));
-        commandInterpreter->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Poppins'; font-size:18pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;\"><br /></p></body></html>", nullptr));
         executeBtn->setText(QCoreApplication::translate("MainWindow", "Execute", nullptr));
         loopBtn->setText(QCoreApplication::translate("MainWindow", "LOOP", nullptr));
         searchBtn->setText(QCoreApplication::translate("MainWindow", "SEARCH", nullptr));
         typeBtn->setText(QCoreApplication::translate("MainWindow", "TYPE", nullptr));
-        copyBtn->setText(QCoreApplication::translate("MainWindow", "COPY", nullptr));
+        helpBtn->setText(QCoreApplication::translate("MainWindow", "HELP", nullptr));
         destroyBtn->setText(QCoreApplication::translate("MainWindow", "DESTROY", nullptr));
+        programFlowChart->setText(QCoreApplication::translate("MainWindow", "Running Program", nullptr));
     } // retranslateUi
 
 };

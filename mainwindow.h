@@ -22,6 +22,12 @@ private slots:
 
     void on_delayBtn_clicked();
 
+    void on_executeBtn_clicked();
+
+    void on_searchBtn_clicked();
+
+    void on_typeBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
